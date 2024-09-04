@@ -1,0 +1,369 @@
+
+
+
+> db.Employee.find({$or:[{Designation:"Manager"},{Designation:"Programmer"}]}).pretty()
+
+
+{
+	"_id" : ObjectId("66b2f07cb4f9bdcae4d297b5"),
+	"EmployeeId" : 1,
+	"FirstName" : "Mangesh",
+	"LastName" : "Pawar",
+	"Email" : "mangesh123@gmail.com",
+	"PhoneNo" : "1231231234",
+	"Address" : {
+		"HouseNo" : 107,
+		"Street" : "WadiaCollege",
+		"City" : "Mumbai",
+		"Country" : "India",
+		"PinCode" : 411223
+	},
+	"Salary" : 24000,
+	"Designation" : "Manager",
+	"Experience" : "2 years",
+	"DateOfJoining" : "2nd March 2022",
+	"BirthDate" : "2nd July 1998"
+}
+{
+	"_id" : ObjectId("66b2f0aab4f9bdcae4d297b7"),
+	"EmployeeId" : 3,
+	"FirstName" : "Sumit",
+	"LastName" : "Shete",
+	"Email" : "Sumit123@gmail.com",
+	"PhoneNo" : "1231231114",
+	"Address" : {
+		"HouseNo" : 23,
+		"Street" : "Koregaon Park",
+		"City" : "Pune",
+		"Country" : "India",
+		"PinCode" : 411013
+	},
+	"Salary" : 22000,
+	"Designation" : "Programmer",
+	"Experience" : "1 years",
+	"DateOfJoining" : "12th October 2020",
+	"BirthDate" : "23rd August 2000"
+}
+{
+	"_id" : ObjectId("66b2f0c1b4f9bdcae4d297b8"),
+	"EmployeeId" : 4,
+	"FirstName" : "Suvrat",
+	"LastName" : "Kumbhar",
+	"Email" : "Suvrat123@gmail.com",
+	"PhoneNo" : "1231266654",
+	"Address" : {
+		"HouseNo" : 44,
+		"Street" : "Alandi",
+		"City" : "Pune",
+		"Country" : "India",
+		"PinCode" : 411015
+	},
+	"Salary" : 32000,
+	"Designation" : "Programmer",
+	"Experience" : "2 years",
+	"DateOfJoining" : "10th January 2019",
+	"BirthDate" : "3rd October 1997"
+}
+{
+	"_id" : ObjectId("66b2f17db4f9bdcae4d297b9"),
+	"EmployeeId" : 5,
+	"FirstName" : "Naseer",
+	"LastName" : "Peer",
+	"Email" : "Naseer123@gmail.com",
+	"PhoneNo" : "1231200054",
+	"Address" : {
+		"HouseNo" : 22,
+		"Street" : "NagarRoad",
+		"City" : "Pune",
+		"Country" : "India",
+		"PinCode" : 411011
+	},
+	"Salary" : 22000,
+	"Designation" : "Programmer",
+	"Experience" : "6 months",
+	"DateOfJoining" : "10th January 2024",
+	"BirthDate" : "10th July 2003"
+}
+> 
+--------------------------------------------------------------------------------------------------------------------------------------
+Q2)
+
+
+> db.Employee.find({"FirstName": {$regex: "r$", $options: "i"}}).pretty()
+{
+	"_id" : ObjectId("66b2f17db4f9bdcae4d297b9"),
+	"EmployeeId" : 5,
+	"FirstName" : "Naseer",
+	"LastName" : "Peer",
+	"Email" : "Naseer123@gmail.com",
+	"PhoneNo" : "1231200054",
+	"Address" : {
+		"HouseNo" : 22,
+		"Street" : "NagarRoad",
+		"City" : "Pune",
+		"Country" : "India",
+		"PinCode" : 411011
+	},
+	"Salary" : 22000,
+	"Designation" : "Programmer",
+	"Experience" : "6 months",
+	"DateOfJoining" : "10th January 2024",
+	"BirthDate" : "10th July 2003"
+}
+> 
+-----------------------------------------------------------------------------------------------------------------------------------------------
+Q3)
+> db.Employee.find({Salary:{$gt:30000}}).pretty()
+{
+	"_id" : ObjectId("66b2f093b4f9bdcae4d297b6"),
+	"EmployeeId" : 2,
+	"FirstName" : "Sahil",
+	"LastName" : "Galande",
+	"Email" : "Sahil123@gmail.com",
+	"PhoneNo" : "1231231334",
+	"Address" : {
+		"HouseNo" : 2,
+		"Street" : "BundGarden",
+		"City" : "Pune",
+		"Country" : "India",
+		"PinCode" : 411001
+	},
+	"Salary" : 34000,
+	"Designation" : "Team Leader",
+	"Experience" : "3 years",
+	"DateOfJoining" : "22nd April 2021",
+	"BirthDate" : "3rd March 1997"
+}
+{
+	"_id" : ObjectId("66b2f0c1b4f9bdcae4d297b8"),
+	"EmployeeId" : 4,
+	"FirstName" : "Suvrat",
+	"LastName" : "Kumbhar",
+	"Email" : "Suvrat123@gmail.com",
+	"PhoneNo" : "1231266654",
+	"Address" : {
+		"HouseNo" : 44,
+		"Street" : "Alandi",
+		"City" : "Pune",
+		"Country" : "India",
+		"PinCode" : 411015
+	},
+	"Salary" : 32000,
+	"Designation" : "Programmer",
+	"Experience" : "2 years",
+	"DateOfJoining" : "10th January 2019",
+	"BirthDate" : "3rd October 1997"
+}
+> 
+--------------------------------------------------------------------------------------------------------------------------
+
+Q4)
+> db.Employee.find({}).sort({Designation:-1 }).pretty()
+{
+	"_id" : ObjectId("66b2f093b4f9bdcae4d297b6"),
+	"EmployeeId" : 2,
+	"FirstName" : "Sahil",
+	"LastName" : "Galande",
+	"Email" : "Sahil123@gmail.com",
+	"PhoneNo" : "1231231334",
+	"Address" : {
+		"HouseNo" : 2,
+		"Street" : "BundGarden",
+		"City" : "Pune",
+		"Country" : "India",
+		"PinCode" : 411001
+	},
+	"Salary" : 34000,
+	"Designation" : "Team Leader",
+	"Experience" : "3 years",
+	"DateOfJoining" : "22nd April 2021",
+	"BirthDate" : "3rd March 1997"
+}
+{
+	"_id" : ObjectId("66b2f0aab4f9bdcae4d297b7"),
+	"EmployeeId" : 3,
+	"FirstName" : "Sumit",
+	"LastName" : "Shete",
+	"Email" : "Sumit123@gmail.com",
+	"PhoneNo" : "1231231114",
+	"Address" : {
+		"HouseNo" : 23,
+		"Street" : "Koregaon Park",
+		"City" : "Pune",
+		"Country" : "India",
+		"PinCode" : 411013
+	},
+	"Salary" : 22000,
+	"Designation" : "Programmer",
+	"Experience" : "1 years",
+	"DateOfJoining" : "12th October 2020",
+	"BirthDate" : "23rd August 2000"
+}
+{
+	"_id" : ObjectId("66b2f0c1b4f9bdcae4d297b8"),
+	"EmployeeId" : 4,
+	"FirstName" : "Suvrat",
+	"LastName" : "Kumbhar",
+	"Email" : "Suvrat123@gmail.com",
+	"PhoneNo" : "1231266654",
+	"Address" : {
+		"HouseNo" : 44,
+		"Street" : "Alandi",
+		"City" : "Pune",
+		"Country" : "India",
+		"PinCode" : 411015
+	},
+	"Salary" : 32000,
+	"Designation" : "Programmer",
+	"Experience" : "2 years",
+	"DateOfJoining" : "10th January 2019",
+	"BirthDate" : "3rd October 1997"
+}
+{
+	"_id" : ObjectId("66b2f17db4f9bdcae4d297b9"),
+	"EmployeeId" : 5,
+	"FirstName" : "Naseer",
+	"LastName" : "Peer",
+	"Email" : "Naseer123@gmail.com",
+	"PhoneNo" : "1231200054",
+	"Address" : {
+		"HouseNo" : 22,
+		"Street" : "NagarRoad",
+		"City" : "Pune",
+		"Country" : "India",
+		"PinCode" : 411011
+	},
+	"Salary" : 22000,
+	"Designation" : "Programmer",
+	"Experience" : "6 months",
+	"DateOfJoining" : "10th January 2024",
+	"BirthDate" : "10th July 2003"
+}
+{
+	"_id" : ObjectId("66b2f07cb4f9bdcae4d297b5"),
+	"EmployeeId" : 1,
+	"FirstName" : "Mangesh",
+	"LastName" : "Pawar",
+	"Email" : "mangesh123@gmail.com",
+	"PhoneNo" : "1231231234",
+	"Address" : {
+		"HouseNo" : 107,
+		"Street" : "WadiaCollege",
+		"City" : "Mumbai",
+		"Country" : "India",
+		"PinCode" : 411223
+	},
+	"Salary" : 24000,
+	"Designation" : "Manager",
+	"Experience" : "2 years",
+	"DateOfJoining" : "2nd March 2022",
+	"BirthDate" : "2nd July 1998"
+}
+----------------------------------------------------------------------------------------------------------------------------
+Q5)
+
+> db.Employee.find({}).count()
+5
+
+
+----------------------------------------------------------------------------------------------------------------------------
+Q6)
+
+
+> db.Transaction.aggregate([{$group:{_id:"$TransactionId",totalamt:{$sum:"$Payment.TotalAmountPaid"}}}])
+{ "_id" : 678, "totalamt" : 10000 }
+{ "_id" : 289, "totalamt" : 2500 }
+{ "_id" : 299, "totalamt" : 1000 }
+{ "_id" : 765, "totalamt" : 100 }
+{ "_id" : 567, "totalamt" : 20000 }
+{ "_id" : 201, "totalamt" : 6000 }
+{ "_id" : 200, "totalamt" : 625 }
+{ "_id" : 7, "totalamt" : 5000 }
+{ "_id" : 786, "totalamt" : 1800 }
+{ "_id" : 211, "totalamt" : 3000 }
+> 
+
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Q7)
+> db.Transaction.aggregate([{$group: {_id: "$Payment.TypeofPayment",totalAmountPaid: { $sum: "$Payment.TotalAmountPaid" }}}])
+
+
+{ "_id" : "Cash", "totalAmountPaid" : 43900 }
+{ "_id" : "Credit", "totalAmountPaid" : 3625 }
+{ "_id" : "Debit", "totalAmountPaid" : 2500 }
+> 
+------------------------------------------------------------------------------------------------------------------------------------------
+
+Q8)
+
+> db.Transaction.aggregate([{$sort:{TransactionDate:1}},{$limit:1}]).pretty()
+{
+	"_id" : ObjectId("66b2f9d5b4f9bdcae4d297bd"),
+	"TransactionId" : 211,
+	"TransactionDate" : "10th May 2024",
+	"Name" : "Rakesh",
+	"TransactionDetails" : {
+		"ItemId" : 124,
+		"ItemName" : "Soap",
+		"Quantity" : 30,
+		"Price" : 100
+	},
+	"Payment" : {
+		"TypeofPayment" : "Credit",
+		"TotalAmountPaid" : 3000,
+		"PaymentSuccessfull" : "True"
+	},
+	"Remark" : "Ok"
+}
+> 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+ Q9)
+
+
+> db.Transaction.aggregate([{$match: {"Payment.TotalAmountPaid": { $gt: 500 }}},{$lookup: {from: "Employee",localField:"Name",foreignField:"FirstName",as: "Transactions"}},{$unwind: "$Transactions"},{$project: {Name: 1,"Payment.TotalAmountPaid": 1,"Transactions.Designation": 1}}]).pretty()
+{
+	"_id" : ObjectId("66b2f9d5b4f9bdcae4d297c2"),
+	"Name" : "Naseer",
+	"Payment" : {
+		"TotalAmountPaid" : 625
+	},
+	"Transactions" : {
+		"Designation" : "Programmer"
+	}
+}
+> 
+------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Q10)
+> var map = function(){emit(this.TransactionId,this.TransactionDetails.Quantity);}
+> var reduce = function(TransactionId,Quantity){return Array.sum(Quantity);};
+> db.Transaction.mapReduce(map,reduce,{out:"Totals"});
+{
+	"result" : "Totals",
+	"timeMillis" : 64,
+	"counts" : {
+		"input" : 11,
+		"emit" : 11,
+		"reduce" : 1,
+		"output" : 10
+	},
+	"ok" : 1
+}
+
+
+> db.Totals.find().pretty()
+{ "_id" : 7, "value" : 5 }
+{ "_id" : 200, "value" : 55 }
+{ "_id" : 201, "value" : 30 }
+{ "_id" : 211, "value" : 30 }
+{ "_id" : 289, "value" : 50 }
+{ "_id" : 299, "value" : 10 }
+{ "_id" : 567, "value" : 20 }
+{ "_id" : 678, "value" : 50 }
+{ "_id" : 765, "value" : 10 }
+{ "_id" : 786, "value" : 20 }
+> 
+
+

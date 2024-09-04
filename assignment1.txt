@@ -1,0 +1,940 @@
+
+
+Q1)
+db.createCollection("Film")
+
+
+
+db.Film.insertMany([
+  // a. Insert at least one document with film belonging to two genres.
+  {
+    FilmId: 1,
+    Title: "Baahubali: The Beginning",
+    YearOfRelease: 2015,
+    Genre: ["Action", "Adventure"],
+    Actors: [
+      { FirstName: "Prabhas", LastName: "Raju" },
+      { FirstName: "Anushka", LastName: "Shetty" }
+    ],
+    Directors: [
+      { FirstName: "S. S.", LastName: "Rajamouli" }
+    ],
+    ReleaseDetails: [
+      { Place: "India", Date: "2015-07-10", Rating: 8.0 }
+    ]
+  },
+----------------------------------------------------------------------------------------------------------------------------------
+  // b. Insert at least one document with film released at more than one place and on two different dates.
+  {
+    FilmId: 2,
+    Title: "2.0",
+    YearOfRelease: 2018,
+    Genre: ["Action", "Sci-Fi"],
+    Actors: [
+      { FirstName: "Rajinikanth", LastName: "Iyer" },
+      { FirstName: "Amy", LastName: "Jackson" }
+    ],
+    Directors: [
+      { FirstName: "S. Shankar", LastName: "" }
+    ],
+    ReleaseDetails: [
+      { Place: "India", Date: "2018-11-29", Rating: 7.5 },
+      { Place: "USA", Date: "2018-12-01", Rating: 7.5 }
+    ]
+  },
+----------------------------------------------------------------------------------------------------------------------------------------
+  // c. Insert at least three documents with the films released in the same year.
+  {
+    FilmId: 3,
+    Title: "Gully Boy",
+    YearOfRelease: 2019,
+    Genre: ["Drama", "Musical"],
+    Actors: [
+      { FirstName: "Ranveer", LastName: "Singh" },
+      { FirstName: "Alia", LastName: "Bhatt" }
+    ],
+    Directors: [
+      { FirstName: "Zoya", LastName: "Akhtar" }
+    ],
+    ReleaseDetails: [
+      { Place: "India", Date: "2019-02-14", Rating: 8.0 }
+    ]
+  },
+  {
+    FilmId: 4,
+    Title: "Article 15",
+    YearOfRelease: 2019,
+    Genre: ["Crime", "Drama"],
+    Actors: [
+      { FirstName: "Ayushmann", LastName: "Khurrana" },
+      { FirstName: "Ishaan", LastName: "Khattar" }
+    ],
+    Directors: [
+      { FirstName: "Anubhav", LastName: "Sinha" }
+    ],
+    ReleaseDetails: [
+      { Place: "India", Date: "2019-06-28", Rating: 8.2 }
+    ]
+  },-
+  {
+    FilmId: 5,
+    Title: "Kabir Singh",
+    YearOfRelease: 2019,
+    Genre: ["Drama", "Romance"],
+    Actors: [
+      { FirstName: "Shahid", LastName: "Kapoor" },
+      { FirstName: "Kiara", LastName: "Advani" }
+    ],
+    Directors: [
+      { FirstName: "Sandeep", LastName: "Reddy Vanga" }
+    ],
+    ReleaseDetails: [
+      { Place: "India", Date: "2019-06-21", Rating: 7.5 }
+    ]
+  },
+-------------------------------------------------------------------------------------------------------------------------------------------
+  // d. Insert at least two documents with the films directed by one director.
+  {
+    FilmId: 6,
+    Title: "Dil Chahta Hai",
+    YearOfRelease: 2001,
+    Genre: ["Drama", "Comedy"],
+    Actors: [
+      { FirstName: "Aamir", LastName: "Khan" },
+      { FirstName: "Saif", LastName: "Ali Khan" }
+    ],
+    Directors: [
+      { FirstName: "Farhan", LastName: "Akhtar" }
+    ],
+    ReleaseDetails: [
+      { Place: "India", Date: "2001-07-20", Rating: 8.2 }
+    ]
+  },
+  {
+    FilmId: 7,
+    Title: "Zindagi Na Milegi Dobara",
+    YearOfRelease: 2011,
+    Genre: ["Drama", "Comedy"],
+    Actors: [
+      { FirstName: "Hrithik", LastName: "Roshan" },
+      { FirstName: "Katrina", LastName: "Kaif" }
+    ],
+    Directors: [
+      { FirstName: "Zoya", LastName: "Akhtar" }
+    ],
+    ReleaseDetails: [
+      { Place: "India", Date: "2011-07-15", Rating: 8.0 }
+    ]
+  },
+--------------------------------------------------------------------------------------------------------------------------------------
+  // e. Insert at least two documents with films acted by a pair ‘Madhuri Dixit’ and ‘Shahrukh Khan’.
+  {
+    FilmId: 8,
+    Title: "Dil To Pagal Hai",
+    YearOfRelease: 1997,
+    Genre: ["Romance", "Musical"],
+    Actors: [
+      { FirstName: "Madhuri", LastName: "Dixit" },
+      { FirstName: "Shahrukh", LastName: "Khan" }
+    ],
+    Directors: [
+      { FirstName: "Yash", LastName: "Chopra" }
+    ],
+    ReleaseDetails: [
+      { Place: "India", Date: "1997-10-31", Rating: 7.9 }
+    ]
+  },
+  {
+    FilmId: 9,
+    Title: "Devdas",
+    YearOfRelease: 2002,
+    Genre: ["Drama", "Romance"],
+    Actors: [
+      { FirstName: "Madhuri", LastName: "Dixit" },
+      { FirstName: "Shahrukh", LastName: "Khan" }
+    ],
+    Directors: [
+      { FirstName: "Sanjay", LastName: "Leela Bhansali" }
+    ],
+    ReleaseDetails: [
+      { Place: "India", Date: "2002-07-12", Rating: 8.0 }
+    ]
+  }
+])
+
+
+
+
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("66a9d539909bc345e014d208"),
+		ObjectId("66a9d539909bc345e014d209"),
+		ObjectId("66a9d539909bc345e014d20a"),
+		ObjectId("66a9d539909bc345e014d20b"),
+		ObjectId("66a9d539909bc345e014d20c"),
+		ObjectId("66a9d539909bc345e014d20d"),
+		ObjectId("66a9d539909bc345e014d20e"),
+		ObjectId("66a9d539909bc345e014d20f"),
+		ObjectId("66a9d539909bc345e014d210")
+	]
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+db.createCollection("Actor")
+
+db.Actor.insertMany([
+  // Actors from the Film collection
+  {
+    ActorId: 1,
+    FirstName: "Prabhas",
+    LastName: "Raju",
+    Address: {
+      Street: "1st Floor, Sunshine Tower",
+      City: "Hyderabad",
+      State: "Telangana",
+      Country: "India",
+      PinCode: "500034"
+    },
+    ContactDetails: {
+      EmailId: "prabhas.raju@example.com",
+      PhoneNo: "9988776655"
+    },
+    Age: 44
+  },
+  {
+    ActorId: 2,
+    FirstName: "Anushka",
+    LastName: "Shetty",
+    Address: {
+      Street: "Breeze Apartments",
+      City: "Bengaluru",
+      State: "Karnataka",
+      Country: "India",
+      PinCode: "560001"
+    },
+    ContactDetails: {
+      EmailId: "anushka.shetty@example.com",
+      PhoneNo: "9977665544"
+    },
+    Age: 38
+  },
+  {
+    ActorId: 3,
+    FirstName: "Rajinikanth",
+    LastName: "Iyer",
+    Address: {
+      Street: "Shivaji Nagar",
+      City: "Chennai",
+      State: "Tamil Nadu",
+      Country: "India",
+      PinCode: "600001"
+    },
+    ContactDetails: {
+      EmailId: "rajinikanth.iyer@example.com",
+      PhoneNo: "9445566778"
+    },
+    Age: 73
+  },
+  {
+    ActorId: 4,
+    FirstName: "Amy",
+    LastName: "Jackson",
+    Address: {
+      Street: "Imperial Towers",
+      City: "Mumbai",
+      State: "Maharashtra",
+      Country: "India",
+      PinCode: "400020"
+    },
+    ContactDetails: {
+      EmailId: "amy.jackson@example.com",
+      PhoneNo: "9112233445"
+    },
+    Age: 33
+  },
+  {
+    ActorId: 5,
+    FirstName: "Ranveer",
+    LastName: "Singh",
+    Address: {
+      Street: "Greenwood Apartments",
+      City: "Mumbai",
+      State: "Maharashtra",
+      Country: "India",
+      PinCode: "400050"
+    },
+    ContactDetails: {
+      EmailId: "ranveer.singh@example.com",
+      PhoneNo: "9998887776"
+    },
+    Age: 39
+  },
+  {
+    ActorId: 6,
+    FirstName: "Alia",
+    LastName: "Bhatt",
+    Address: {
+      Street: "Sea View Mansion",
+      City: "Mumbai",
+      State: "Maharashtra",
+      Country: "India",
+      PinCode: "400051"
+    },
+    ContactDetails: {
+      EmailId: "alia.bhatt@example.com",
+      PhoneNo: "9988776655"
+    },
+    Age: 31
+  },
+  {
+    ActorId: 7,
+    FirstName: "Shahid",
+    LastName: "Kapoor",
+    Address: {
+      Street: "Oceanic Heights",
+      City: "Mumbai",
+      State: "Maharashtra",
+      Country: "India",
+      PinCode: "400091"
+    },
+    ContactDetails: {
+      EmailId: "shahid.kapoor@example.com",
+      PhoneNo: "9876543210"
+    },
+    Age: 43
+  },
+  {
+    ActorId: 8,
+    FirstName: "Kiara",
+    LastName: "Advani",
+    Address: {
+      Street: "Sunshine Apartments",
+      City: "Mumbai",
+      State: "Maharashtra",
+      Country: "India",
+      PinCode: "400064"
+    },
+    ContactDetails: {
+      EmailId: "kiara.advani@example.com",
+      PhoneNo: "9876543211"
+    },
+    Age: 31
+  },
+  {
+    ActorId: 9,
+    FirstName: "Madhuri",
+    LastName: "Dixit",
+    Address: {
+      Street: "Gulmohar Road",
+      City: "Mumbai",
+      State: "Maharashtra",
+      Country: "India",
+      PinCode: "400020"
+    },
+    ContactDetails: {
+      EmailId: "madhuri.dixit@example.com",
+      PhoneNo: "9988776654"
+    },
+    Age: 57
+  },
+  {
+    ActorId: 10,
+    FirstName: "Shahrukh",
+    LastName: "Khan",
+    Address: {
+      Street: "Mannat Building",
+      City: "Mumbai",
+      State: "Maharashtra",
+      Country: "India",
+      PinCode: "400050"
+    },
+    ContactDetails: {
+      EmailId: "shahrukh.khan@example.com",
+      PhoneNo: "9998887777"
+    },
+    Age: 58
+  }
+])
+
+
+
+{
+	"acknowledged" : true,
+	"insertedIds" : [
+		ObjectId("66a9d694909bc345e014d211"),
+		ObjectId("66a9d694909bc345e014d212"),
+		ObjectId("66a9d694909bc345e014d213"),
+		ObjectId("66a9d694909bc345e014d214"),
+		ObjectId("66a9d694909bc345e014d215"),
+		ObjectId("66a9d694909bc345e014d216"),
+		ObjectId("66a9d694909bc345e014d217"),
+		ObjectId("66a9d694909bc345e014d218"),
+		ObjectId("66a9d694909bc345e014d219"),
+		ObjectId("66a9d694909bc345e014d21a")
+	]
+}
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ db.Film.find().pretty()
+{
+	"_id" : ObjectId("66a9d539909bc345e014d208"),
+	"FilmId" : 1,
+	"Title" : "Baahubali: The Beginning",
+	"YearOfRelease" : 2015,
+	"Genre" : [
+		"Action",
+		"Adventure"
+	],
+	"Actors" : [
+		{
+			"FirstName" : "Prabhas",
+			"LastName" : "Raju"
+		},
+		{
+			"FirstName" : "Anushka",
+			"LastName" : "Shetty"
+		}
+	],
+	"Directors" : [
+		{
+			"FirstName" : "S. S.",
+			"LastName" : "Rajamouli"
+		}
+	],
+	"ReleaseDetails" : [
+		{
+			"Place" : "India",
+			"Date" : "2015-07-10",
+			"Rating" : 8
+		}
+	]
+}
+{
+	"_id" : ObjectId("66a9d539909bc345e014d209"),
+	"FilmId" : 2,
+	"Title" : "2.0",
+	"YearOfRelease" : 2018,
+	"Genre" : [
+		"Action",
+		"Sci-Fi"
+	],
+	"Actors" : [
+		{
+			"FirstName" : "Rajinikanth",
+			"LastName" : "Iyer"
+		},
+		{
+			"FirstName" : "Amy",
+			"LastName" : "Jackson"
+		}
+	],
+	"Directors" : [
+		{
+			"FirstName" : "S. Shankar",
+			"LastName" : ""
+		}
+	],
+	"ReleaseDetails" : [
+		{
+			"Place" : "India",
+			"Date" : "2018-11-29",
+			"Rating" : 7.5
+		},
+		{
+			"Place" : "USA",
+			"Date" : "2018-12-01",
+			"Rating" : 7.5
+		}
+	]
+}
+{
+	"_id" : ObjectId("66a9d539909bc345e014d20a"),
+	"FilmId" : 3,
+	"Title" : "Gully Boy",
+	"YearOfRelease" : 2019,
+	"Genre" : [
+		"Drama",
+		"Musical"
+	],
+	"Actors" : [
+		{
+			"FirstName" : "Ranveer",
+			"LastName" : "Singh"
+		}),
+		{
+			"FirstName" : "Alia",
+			"LastName" : "Bhatt"
+		}
+	],
+	"Directors" : [
+		{
+			"FirstName" : "Zoya",
+			"LastName" : "Akhtar"
+		}
+	],
+	"ReleaseDetails" : [
+		{
+			"Place" : "India",
+			"Date" : "2019-02-14",
+			"Rating" : 8
+		}
+	]
+}
+{
+	"_id" : ObjectId("66a9d539909bc345e014d20b"),
+	"FilmId" : 4,
+	"Title" : "Article 15",
+	"YearOfRelease" : 2019,
+	"Genre" : [
+		"Crime",
+		"Drama"
+	],
+	"Actors") : [
+		{
+			"FirstName" : "Ayushmann",
+			"LastName" : "Khurrana"
+		},
+		{
+			"FirstName" : "Ishaan",
+			"LastName" : "Khattar"
+		}
+	],
+	"Directors" : [
+		{
+			"FirstName" : "Anubhav",
+			"LastName" : "Sinha"
+		}
+	],
+	"ReleaseDetails" : [
+		{
+			"Place" : "India",
+			"Date" : "2019-06-28",
+			"Rating" : 8.2
+		}
+	]
+}
+{
+	"_id" : ObjectId("66a9d539909bc345e014d20c"),
+	"FilmId" : 5,
+	"Title" : "Kabir Singh",
+	"YearOfRelease" : 2019,
+	"Genre" : [
+		"Drama",
+		"Romance"
+	],
+	"Actors" : [
+		{
+			"FirstName" : "Shahid",
+			"LastName" : "Kapoor"
+		},
+		{
+			"FirstName" : "Kiara",
+			"LastName" : "Advani"
+		}
+	],
+	"Directors" : [
+		{
+			"FirstName" : "Sandeep",
+			"LastName" : "Reddy Vanga"
+		}
+	],
+	"ReleaseDetails" : [
+		{
+			"Place" : "India",
+			"Date" : "2019-06-21",
+			"Rating" : 7.5
+		}
+	]
+}
+{
+	"_id" : ObjectId("66a9d539909bc345e014d20d"),
+	"FilmId" : 6,
+	"Title" : "Dil Chahta Hai",
+	"YearOfRelease" : 2001,
+	"Genre" : [
+		"Drama",
+		"Comedy"
+	],
+	"Actors" : [
+		{
+			"FirstName" : "Aamir",
+			"LastName" : "Khan"
+		},
+		{
+			"FirstName" : "Saif",
+			"LastName" : "Ali Khan"
+		}
+	],
+	"Directors" : [
+		{
+			"FirstName" : "Farhan",
+			"LastName" : "Akhtar"
+		}
+	],
+	"ReleaseDetails" : [
+		{
+			"Place" : "India",
+			"Date" : "2001-07-20",
+			"Rating" : 8.2
+		}
+	]
+}
+{
+	"_id" : ObjectId("66a9d539909bc345e014d20e"),
+	"FilmId" : 7,
+	"Title" : "Zindagi Na Milegi Dobara",
+	"YearOfRelease" : 2011,
+	"Genre" : [
+		"Drama",
+		"Comedy"
+	],
+	"Actors" : [
+		{
+			"FirstName" : "Hrithik",
+			"LastName" : "Roshan"
+		},
+		{
+			"FirstName" : "Katrina",
+			"LastName" : "Kaif"
+		}
+	],
+	"Directors" : [
+		{
+			"FirstName" : "Zoya",
+			"LastName" : "Akhtar"
+		}
+	],
+	"ReleaseDetails" : [
+		{
+			"Place" : "India",
+			"Date" : "2011-07-15",
+			"Rating" : 8
+		}
+	]
+}
+{
+	"_id" : ObjectId("66a9d539909bc345e014d20f"),
+	"FilmId" : 8,
+	"Title" : "Dil To Pagal Hai",
+	"YearOfRelease" : 1997,
+	"Genre" : [
+		"Romance",
+		"Musical"
+	],
+	"Actors" : [
+		{
+			"FirstName" : "Madhuri",
+			"LastName" : "Dixit"
+		},
+		{
+			"FirstName" : "Shahrukh",
+			"LastName" : "Khan"
+		}
+	],
+	"Directors" : [
+		{
+			"FirstName" : "Yash",
+			"LastName" : "Chopra"
+		}
+	],
+	"ReleaseDetails" : [
+		{
+			"Place" : "India",
+			"Date" : "1997-10-31",
+			"Rating" : 7.9
+		}
+	]
+}
+{
+	"_id" : ObjectId("66a9d539909bc345e014d210"),
+	"FilmId" : 9,
+	"Title" : "Devdas",
+	"YearOfRelease" : 2002,
+	"Genre" : [
+		"Drama",
+		"Romance"
+	],
+	"Actors" : [
+		{
+			"FirstName" : "Madhuri",
+			"LastName" : "Dixit"
+		},
+		{
+			"FirstName" : "Shahrukh",
+			"LastName" : "Khan"
+		}
+	],
+	"Directors" : [
+		{
+			"FirstName" : "Sanjay",
+			"LastName" : "Leela Bhansali"
+		}
+	],
+	"ReleaseDetails" : [
+		{
+			"Place" : "India",
+			"Date" : "2002-07-12",
+			"Rating" : 8
+		}
+	]
+}
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+> db.Actor.find().pretty()
+{
+	"_id" : ObjectId("66a9d694909bc345e014d211"),
+	"ActorId" : 1,
+	"FirstName" : "Prabhas",
+	"LastName" : "Raju",
+	"Address" : {
+		"Street" : "1st Floor, Sunshine Tower",
+		"City" : "Hyderabad",
+		"State" : "Telangana",
+		"Country" : "India",
+		"PinCode" : "500034"
+	},
+	"ContactDetails" : {
+		"EmailId" : "prabhas.raju@example.com",
+		"PhoneNo" : "9988776655"
+	},
+	"Age" : 44
+}
+{
+	"_id" : ObjectId("66a9d694909bc345e014d212"),
+	"ActorId" : 2,
+	"FirstName" : "Anushka",
+	"LastName" : "Shetty",
+	"Address" : {
+		"Street" : "Breeze Apartments",
+		"City" : "Bengaluru",
+		"State" : "Karnataka",
+		"Country" : "India",
+		"PinCode" : "560001"
+	},
+	"ContactDetails" : {
+		"EmailId" : "anushka.shetty@example.com",
+		"PhoneNo" : "9977665544"
+	},
+	"Age" : 38
+}
+{
+	"_id" : ObjectId("66a9d694909bc345e014d213"),
+	"ActorId" : 3,
+	"FirstName" : "Rajinikanth",
+	"LastName" : "Iyer",
+	"Address" : {
+		"Street" : "Shivaji Nagar",
+		"City" : "Chennai",
+		"State" : "Tamil Nadu",
+		"Country" : "India",
+		"PinCode" : "600001"
+	},
+	"ContactDetails" : {
+		"EmailId" : "rajinikanth.iyer@example.com",
+		"PhoneNo" : "9445566778"
+	},
+	"Age" : 73
+}
+{
+	"_id" : ObjectId("66a9d694909bc345e014d214"),
+	"ActorId" : 4,
+	"FirstName" : "Amy",
+	"LastName" : "Jackson",
+	"Address" : {
+		"Street" : "Imperial Towers",
+		"City" : "Mumbai",
+		"State" : "Maharashtra",
+		"Country" : "India",
+		"PinCode" : "400020"
+	},
+	"ContactDetails" : {
+		"EmailId" : "amy.jackson@example.com",
+		"PhoneNo" : "9112233445"
+	},
+	"Age" : 33
+}
+{
+	"_id" : ObjectId("66a9d694909bc345e014d215"),
+	"ActorId" : 5,
+	"FirstName" : "Ranveer",
+	"LastName" : "Singh",
+	"Address" : {
+		"Street" : "Greenwood Apartments",
+		"City" : "Mumbai",
+		"State" : "Maharashtra",
+		"Country" : "India",
+		"PinCode" : "400050"
+	},
+	"ContactDetails" : {
+		"EmailId" : "ranveer.singh@example.com",
+		"PhoneNo" : "9998887776"
+	},
+	"Age" : 39
+}
+{
+	"_id" : ObjectId("66a9d694909bc345e014d216"),
+	"ActorId" : 6,
+	"FirstName" : "Alia",
+	"LastName" : "Bhatt",
+	"Address" : {
+		"Street" : "Sea View Mansion",
+		"City" : "Mumbai",
+		"State" : "Maharashtra",
+		"Country" : "India",
+		"PinCode" : "400051"
+	},
+	"ContactDetails" : {
+		"EmailId" : "alia.bhatt@example.com",
+		"PhoneNo" : "9988776655"
+	},
+	"Age" : 31
+}
+{
+	"_id" : ObjectId("66a9d694909bc345e014d217"),
+	"ActorId" : 7,
+	"FirstName" : "Shahid",
+	"LastName" : "Kapoor",
+	"Address" : {
+		"Street" : "Oceanic Heights",
+		"City" : "Mumbai",
+		"State" : "Maharashtra",
+		"Country" : "India",
+		"PinCode" : "400091"
+	},
+	"ContactDetails" : {
+		"EmailId" : "shahid.kapoor@example.com",
+		"PhoneNo" : "9876543210"
+	},
+	"Age" : 43
+}
+{
+	"_id" : ObjectId("66a9d694909bc345e014d218"),
+	"ActorId" : 8,
+	"FirstName" : "Kiara",
+	"LastName" : "Advani",
+	"Address" : {
+		"Street" : "Sunshine Apartments",
+		"City" : "Mumbai",
+		"State" : "Maharashtra",
+		"Country" : "India",
+		"PinCode" : "400064"
+	},
+	"ContactDetails" : {
+		"EmailId" : "kiara.advani@example.com",
+		"PhoneNo" : "9876543211"
+	},
+	"Age" : 31
+}
+{
+	"_id" : ObjectId("66a9d694909bc345e014d219"),
+	"ActorId" : 9,
+	"FirstName" : "Madhuri",
+	"LastName" : "Dixit",
+	"Address" : {
+		"Street" : "Gulmohar Road",
+		"City" : "Mumbai",
+		"State" : "Maharashtra",
+		"Country" : "India",
+		"PinCode" : "400020"
+	},
+	"ContactDetails" : {
+		"EmailId" : "madhuri.dixit@example.com",
+		"PhoneNo" : "9988776654"
+	},
+	"Age" : 57
+}
+{
+	"_id" : ObjectId("66a9d694909bc345e014d21a"),
+	"ActorId" : 10,
+	"FirstName" : "Shahrukh",
+	"LastName" : "Khan",
+	"Address" : {
+		"Street" : "Mannat Building",
+		"City" : "Mumbai",
+		"State" : "Maharashtra",
+		"Country" : "India",
+		"PinCode" : "400050"
+	},
+	"ContactDetails" : {
+		"EmailId" : "shahrukh.khan@example.com",
+		"PhoneNo" : "9998887777"
+	},
+	"Age" : 58
+}
+-------------------------------------------------------------------------------------------------------------------------
+
+
+4. Add a value to the rating of the film whose title starts with ‘T’.
+
+> db.Film.updateMany(
+...   { Title: { $regex: "^D" } }, 
+...   { $inc: { "ReleaseDetails.$[].Rating": 0.5 } } 
+... )
+{ "acknowledged" : true, "matchedCount" : 3, "modifiedCount" : 3 }
+----------------------------------------------------------------------------------------------------
+5. Add an actor named "_____________" in the ‘Actor’ collection.
+Also add the details of the film in ‘Film’ collection in which this actor
+has acted in.
+
+> db.Actor.insertOne({ActorId:10,FirstName:"Aditya",LastName:"Kapoor",Address:{Street:"Kapil Nagar",City:"Pune",State:"Maharashtra",Country:"India",PinCode:"411014"},ContactDetails:{EmailId:"aditya.kapoor@example.com",PhoneNo:0099909099},Age:34})
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("66a9dd01909bc345e014d21c")
+}
+
+
+> db.Film.insertOne({FilmId:11,Title:"Aashiqui",YearOfRelease:2011,Genre:"Romance",Actors:[{FirstName:"Adiya",LastName:"Kapoor"},{FirstName:"Shraddha",LastName:"Kapoor"}],Directors:[{Firstname:"Sanjay",LastName:"Bhansali"}],ReleaseDetails:[{Place:"India",Date:"2011-02-21",Rating:8.0}]})
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("66a9de8c909bc345e014d21d")
+}
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+6. Delete the film "______________".
+
+> db.Film.remove({Title:"Dil Chahta Hai"})
+WriteResult({ "nRemoved" : 1 })
+
+---------------------------------------------------------------------------------------------------------------
+7. Delete an actor named "_________".
+
+> db.Actor.remove({FirstName:"Shahid"})
+WriteResult({ "nRemoved" : 1 })
+-----------------------------------------------------------------------------------------------------
+8. Delete all actors from an ‘Actor’ collection who have age greater than
+“_____”
+> db.Actor.deleteMany({
+...   Age: { $gt: 60 } 
+... });
+{ "acknowledged" : true, "deletedCount" : 0 }
+
+-------------------------------------------------------------------------------------------------------------
+9. Update the actor’s address where Actor Id is “ ______”.
+
+> db.Actor.updateOne(
+...   { _id: ObjectId("66a9dd01909bc345e014d21c") }, 
+...   { $set: { address: {Street:"Kapil Nagar Road",City:"Pune City",State:"Maharashtra",Country:"India",PinCode:"411014"} } }
+... );
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> 
+------------------------------------------------------------------------------------------------------------------------------------------------
+10. Update the genre of the film directed by “___________”.
+
+> db.Film.updateOne(
+...   { Directors: [{Firstname:"Sanjay",LastName:"Bhansali"}] },  
+...   { $set: { genre: "romance" } }  
+... );
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+> 
+
+
+
