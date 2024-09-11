@@ -1,0 +1,91 @@
+Q1
+
+-- Create nodes
+CREATE (:Book {title: "Book Title 1", tags: ["fiction", "mystery"], status: "available", condition: "new", cost: 29.99, type: "Novel"})
+CREATE (:Book {title: "Book Title 2", tags: ["history", "non-fiction"], status: "issued", condition: "old", cost: 19.99, type: "Journal"})
+CREATE (:Person {name: "Author 1"})
+CREATE (:Person {name: "Reader 1"})
+CREATE (:Publisher {name: "Publisher X"})
+
+-- Create relationships
+MATCH (b:Book), (p:Publisher)
+WHERE b.title = "Book Title 1" AND p.name = "Publisher X"
+CREATE (b)-[:PUBLISHED_BY]->(p)
+
+-- Add more nodes and relationships as needed
+-- ...
+
+-- Query example: Find books issued by a specific reader
+MATCH (r:Reader {name: "Reader 1"})-[:ISSUED]->(b:Book)
+RETURN b.title
+
+
+Q2
+
+-- Create nodes
+CREATE (:Artist {name: "Artist A"})
+CREATE (:Song {title: "Song Title 1"})
+CREATE (:RecordingCompany {name: "Company Y"})
+CREATE (:RecordingStudio {name: "Studio Z"})
+CREATE (:SongAuthor {name: "Author B"})
+
+-- Create relationships
+MATCH (a:Artist), (s:Song)
+WHERE a.name = "Artist A" AND s.title = "Song Title 1"
+CREATE (a)-[:PERFORMS]->(s)
+
+-- Add more nodes and relationships as needed
+-- ...
+
+-- Query example: Find songs recorded in a specific studio
+MATCH (s:Song)-[:RECORDED_IN]->(studio:RecordingStudio {name: "Studio Z"})
+RETURN s.title
+
+
+Q3
+
+-- Create nodes
+CREATE (:Employee {name: "John Doe"})
+CREATE (:Department {name: "Engineering"})
+CREATE (:Skillset {name: "Java"})
+CREATE (:Project {name: "Project X"})
+
+-- Create relationships
+MATCH (e:Employee), (d:Department)
+WHERE e.name = "John Doe" AND d.name = "Engineering"
+CREATE (e)-[:WORKS_IN]->(d)
+
+-- Add more nodes and relationships as needed
+-- ...
+
+-- Query example: Find employees assigned to a specific project
+MATCH (p:Project {name: "Project X"})<-[:ASSIGNED_TO]-(e:Employee)
+RETURN e.name
+
+
+Q4
+
+
+
+-- Create nodes
+CREATE (:Actor {name: "Actor 1"})
+CREATE (:Movie {title: "Movie Title 1"})
+CREATE (:Role {name: "Lead Role"})
+CREATE (:Producer {name: "Producer P"})
+CREATE (:Financier {name: "Financier F"})
+CREATE (:Director {name: "Director D"})
+
+-- Create relationships
+MATCH (a:Actor), (m:Movie)
+WHERE a.name = "Actor 1" AND m.title = "Movie Title 1"
+CREATE (a)-[:ACTED_IN]->(m)
+
+-- Add more nodes and relationships as needed
+-- ...
+
+-- Query example: Find movies produced by a specific producer
+MATCH (p:Producer {name: "Producer P"})-[:PRODUCED_BY]->(m:Movie)
+RETURN m.title
+
+
+
