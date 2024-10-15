@@ -1,0 +1,9 @@
+OIDC/OAuth# [2024-10-15T14:15:57.657Z] 'log' Invalid response for SSO provider discovery attempt, endpoint: https://b6d7833c50a7ee585abc1f7e627fbb8b.neo4jsandbox.com/
+OIDC/OAuth# [2024-10-15T14:15:57.657Z] 'log' 
+OIDC/OAuth# [2024-10-15T14:15:57.657Z] 'log' Double check that the discovery url returns a valid JSON file.
+OIDC/OAuth# [2024-10-15T14:15:57.667Z] 'log' SSO provider discovery attempt failed on endpoint: https://b6d7833c50a7ee585abc1f7e627fbb8b.bolt.neo4jsandbox.com:443 error: TypeError: Failed to fetch
+OIDC/OAuth# [2024-10-15T14:15:57.667Z] 'log' Couldn't find bolt host to associate with discovery data from source connectForm, dropping.
+OIDC/OAuth# [2024-10-15T14:15:57.667Z] 'log' Couldn't find bolt host to associate with discovery data from source discoveryURL, dropping.
+OIDC/OAuth# [2024-10-15T14:15:57.667Z] 'log' Couldn't find bolt host to associate with discovery data from source discoveryEndpoint, dropping.
+OIDC/OAuth# [2024-10-15T14:15:57.667Z] 'log' Using host: http://b6d7833c50a7ee585abc1f7e627fbb8b.bolt.neo4jsandbox.com:443 from connectURL for SSO flow.
+OIDC/OAuth# [2024-10-15T14:15:57.670Z] 'log' discovered these SSO providers: []
