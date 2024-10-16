@@ -213,3 +213,193 @@ p.name
 "Alice"
 Started streaming 1 records in less than 1 ms and completed in less than 1 ms
 
+
+DATA
+
+
+
+1. Library Database
+
+People
+
+CREATE (:Person {name: "Alice"});
+CREATE (:Person {name: "Bob"});
+CREATE (:Person {name: "Mr. Joshi"});
+
+Books
+
+CREATE (:Book {title: "The Great Gatsby"});
+CREATE (:Book {title: "1984"});
+CREATE (:Book {title: "To Kill a Mockingbird"});
+
+Publishers
+
+CREATE (:Publisher {name: "Penguin Books", city: "Pune"});
+CREATE (:Publisher {name: "HarperCollins", city: "Mumbai"});
+
+Relationships
+
+MATCH (a:Person {name: "Alice"}), (b:Book {title: "1984"})
+CREATE (a)-[:ISSUED]->(b);
+
+MATCH (b:Person {name: "Bob"}), (b2:Book {title: "The Great Gatsby"})
+CREATE (b)-[:ISSUED]->(b2);
+
+MATCH (j:Person {name: "Mr. Joshi"}), (b3:Book {title: "To Kill a Mockingbird"})
+CREATE (j)-[:ISSUED]->(b3);
+
+
+
+2. Song Database
+
+Songs
+
+CREATE (:Song {title: "Imagine"});
+CREATE (:Song {title: "Hey Jude"});
+CREATE (:Song {title: "Bohemian Rhapsody"});
+
+Authors
+
+CREATE (:Author {name: "John Lennon"});
+CREATE (:Author {name: "Paul McCartney"});
+CREATE (:Author {name: "Freddie Mercury"});
+
+Record Companies
+
+CREATE (:RecordCompany {name: "Apple Records"});
+CREATE (:RecordCompany {name: "EMI"});
+
+Artists
+
+CREATE (:Artist {name: "John Lennon"});
+CREATE (:Artist {name: "Paul McCartney"});
+CREATE (:Artist {name: "Freddie Mercury"});
+ 
+Studios
+
+CREATE (:Studio {name: "Abbey Road Studios"});
+CREATE (:Studio {name: "Trident Studios"});
+
+Relationships
+
+MATCH (s:Song {title: "Imagine"}), (a:Author {name: "John Lennon"})
+CREATE (s)-[:WRITTEN_BY]->(a);
+
+MATCH (s:Song {title: "Hey Jude"}), (rc:RecordCompany {name: "Apple Records"})
+CREATE (s)-[:FINANCED_BY]->(rc);
+
+MATCH (s:Song {title: "Bohemian Rhapsody"}), (a:Artist {name: "Freddie Mercury"})
+CREATE (s)-[:PERFORMED_BY]->(a);
+
+MATCH (s:Song {title: "Imagine"}), (studio:Studio {name: "Abbey Road Studios"})
+CREATE (s)-[:RECORDED_AT]->(studio);
+
+
+
+
+3. Employee Database
+
+Employees
+
+CREATE (:Employee {name: "John Doe"});
+CREATE (:Employee {name: "Jane Smith"});
+CREATE (:Employee {name: "Robert Brown"});
+
+Departments
+
+CREATE (:Department {name: "HR"});
+CREATE (:Department {name: "Engineering"});
+CREATE (:Department {name: "Marketing"});
+
+Projects
+
+CREATE (:Project {name: "Project Alpha"});
+CREATE (:Project {name: "Project Beta"});
+Skills
+CREATE (:Skill {name: "Java"});
+CREATE (:Skill {name: "Scala"});
+CREATE (:Skill {name: "Project Management"});
+
+Relationships
+
+MATCH (e:Employee {name: "John Doe"}), (d:Department {name: "Engineering"})
+CREATE (e)-[:WORKS_IN]->(d);
+
+MATCH (p:Project {name: "Project Alpha"}), (d:Department {name: "Engineering"})
+CREATE (p)-[:CONTROLLED_BY]->(d);
+
+MATCH (e:Employee {name: "Jane Smith"}), (s:Skill {name: "Java"})
+CREATE (e)-[:HAS_SKILL]->(s);
+
+
+
+4. Movie Database
+
+Actors
+
+CREATE (:Actor {name: "Leonardo DiCaprio"});
+CREATE (:Actor {name: "Kate Winslet"});
+CREATE (:Actor {name: "Brad Pitt"});
+
+Movies
+
+CREATE (:Movie {title: "Inception", year: 2010});
+CREATE (:Movie {title: "Titanic", year: 1997});
+CREATE (:Movie {title: "Fight Club", year: 1999});
+
+Producers
+
+CREATE (:Producer {name: "Christopher Nolan"});
+CREATE (:Producer {name: "James Cameron"});
+Reviewers
+CREATE (:Reviewer {name: "Reviewer1"});
+CREATE (:Reviewer {name: "Reviewer2"});
+
+
+Relationships
+
+
+MATCH (a:Actor {name: "Leonardo DiCaprio"}), (m:Movie {title: "Inception"})
+CREATE (a)-[:ACTED_IN]->(m);
+
+MATCH (r1:Reviewer {name: "Reviewer1"}), (r2:Reviewer {name: "Reviewer2"})
+CREATE (r1)-[:FOLLOWS]->(r2);
+
+MATCH (r1:Reviewer {name: "Reviewer1"}), (m:Movie {title: "Inception"})
+CREATE (r1)-[:REVIEWED]->(m);
+
+MATCH (r2:Reviewer {name: "Reviewer2"}), (m:Movie {title: "Inception"})
+CREATE (r2)-[:REVIEWED]->(m);
+
+
+
+
+5. Social Network Database
+
+People
+
+CREATE (:Person {name: "John", birthYear: 1990});
+CREATE (:Person {name: "Alice", birthYear: 1990});
+CREATE (:Person {name: "Bob", birthYear: 1989});
+
+Affiliations
+
+CREATE (:Affiliation {name: "Company A"});
+CREATE (:Affiliation {name: "Company B"});
+
+Messages
+
+CREATE (:Message {content: "Hello World!", year: 2015});
+CREATE (:Message {content: "Happy New Year!", year: 2015});
+
+Relationships
+
+MATCH (john:Person {name: "John"}), (alice:Person {name: "Alice"})
+CREATE (john)-[:KNOWS {since: 2010}]->(alice);
+
+MATCH (john:Person {name: "John"}), (aff:Affiliation {name: "Company A"})
+CREATE (john)-[:AFFILIATED_WITH]->(aff);
+
+MATCH (john:Person {name: "John"}), (msg:Message {content: "Hello World!"})
+CREATE (john)-[:POSTED]->(msg);
+
